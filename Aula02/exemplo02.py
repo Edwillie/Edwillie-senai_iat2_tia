@@ -48,3 +48,23 @@ for i, (entrada, resultado_esperado, predicao) in enumerate(zip(x, y, predicoes)
 acuracia = accuracy_score(y, predicoes)
 print("Acuracia: ", acuracia*len(y)/len(y))
 print("Em porcentagem: ", 100*acuracia, "%")
+
+print("Testando com novos alunos....")
+novos_alunos = [
+    [5,5],
+    [8,8],
+    [2,2],
+    [6,6],
+    [3,9],
+    [9,3],
+    [8,2],
+]
+
+predicoes_novos = modelo_aprovacao.predict(novos_alunos)
+for i, (entrada, predicao) in enumerate(zip(novos_alunos, predicoes_novos), 1):
+    status = "Aprovado" if predicao == 1 else "Reprovado"
+    print("Novo Aluno", i)
+    print("Estudo: ", entrada[0], "h")
+    print("Trabalho:", entrada[1])
+    print("Status:", status)
+    print("-"*60)
