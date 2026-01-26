@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.linear_model import Perceptron
+from sklearn.metrics import accuracy_score
 
 dados_treino = [
     [[2, 3], 0],
@@ -43,3 +44,7 @@ for i, (entrada, resultado_esperado, predicao) in enumerate(zip(x, y, predicoes)
     print("Predição:", status, predicao)
     print("Esperado", resultado_esperado, acertou)
     print("-"*60)
+
+acuracia = accuracy_score(y, predicoes)
+print("Acuracia: ", acuracia*len(y)/len(y))
+print("Em porcentagem: ", 100*acuracia, "%")
