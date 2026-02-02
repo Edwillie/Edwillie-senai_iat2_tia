@@ -1,3 +1,3 @@
 Aulas de Técnicas de Inteligencia Artificial..
 
-2026-02-02: Redes Neurais Associativas
+2026-02-02 (Aula 03): Redes Neurais Associativas
