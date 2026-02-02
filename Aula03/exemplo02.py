@@ -31,5 +31,20 @@ class HopfieldNetwork:
                 return new_state
             
             current_state = new_state
-            
+
         return current_state
+    
+def print_grid(pattern, rows, cols, title="Padrão"):
+    print("---", title, "---")
+    grid = pattern.reshape(rows, cols)
+    for row in grid:
+        line = ""
+
+        for val in row:
+            if val == 1:
+                line += bloco
+            else:
+                line += "."
+        
+        print(line)
+    print()
