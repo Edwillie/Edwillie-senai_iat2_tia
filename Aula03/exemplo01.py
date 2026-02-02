@@ -31,3 +31,27 @@ class NeuronioHebbiano:
         else:
             print("Não")
             print("Nenhum novo aprendizado")
+
+brain = NeuronioHebbiano()
+# vetores de entrada: [comida, campainha]
+# 1 = presente, 0 = ausente
+
+# Situação: Apenas Campainha
+SITUACAO_APENAS_CAMPAINHA = np.array([0,1])
+
+print("Testando a campainha antes do treinamento")
+resposta = brain.ativar(SITUACAO_APENAS_CAMPAINHA)
+if resposta == 1:
+    print("Resultado: Salivou e não deveria")
+else:
+    print("Resultado: Campainha ignorada. Conforme esperado")    
+
+# Situação: Apenas Treino
+SITUACAO_TREINO = np.array([1,1])
+
+print("Testando a campainha o treinamento")
+resposta = brain.ativar(SITUACAO_TREINO)
+if resposta == 1:
+    print("Resultado: Campainha compreendida.")
+else:
+    print("Resultado: Campainha ignorada. Algo de errado ocorreu")
