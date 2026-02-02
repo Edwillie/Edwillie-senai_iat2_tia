@@ -49,9 +49,19 @@ else:
 # Situação: Apenas Treino
 SITUACAO_TREINO = np.array([1,1])
 
-print("Testando a campainha o treinamento")
-resposta = brain.ativar(SITUACAO_TREINO)
+print("="*50)
+print("Treinando o modelo")
+for dia in range(1,4):
+    print("Dia", dia, "Comida e tocando o sino")
+    resposta = brain.treinar_passo(SITUACAO_TREINO)
+    time.sleep(1)
+
+print("="*50)
+print("Verificando o modelo -> Sem Comida")
+resposta = brain.ativar(SITUACAO_APENAS_CAMPAINHA)
+print("Pesos Finais", brain.weights)
 if resposta == 1:
-    print("Resultado: Campainha compreendida.")
+    print("Resultado: Salivou ESPERADO! Neuronio Aprendeu")
 else:
-    print("Resultado: Campainha ignorada. Algo de errado ocorreu")
+    print("Resultado: Campainha ignorada. Algo errado ocorreu")    
+
