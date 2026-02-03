@@ -44,7 +44,63 @@ def print_grid(pattern, rows, cols, title="Padrão"):
             if val == 1:
                 line += bloco
             else:
-                line += "."
+                line += " . "
         
         print(line)
     print()
+
+print("="*50)
+ROWS, COLS = 5, 5
+N_NEURONS = ROWS * COLS
+
+P1 = np.array([
+     1, -1, -1, -1,  1,
+    -1,  1, -1,  1, -1,
+    -1, -1,  1, -1, -1,
+    -1,  1, -1,  1, -1,
+     1, -1, -1, -1,  1,
+])
+
+print_grid(P1, ROWS, COLS, "Padrão X")
+
+P2 = np.array([
+    -1, -1,  1, -1, -1,
+    -1, -1,  1, -1, -1,
+     1,  1,  1,  1,  1,
+    -1, -1,  1, -1, -1,
+    -1, -1,  1, -1, -1,
+])
+
+print_grid(P2, ROWS, COLS, "Padrão +")
+
+hopfield = HopfieldNetwork(size=N_NEURONS)
+hopfield.train([P1, P2])
+
+print("="*50)
+noisy_input = P1.copy()
+noisy_input[0]  = -1
+noisy_input[12] = -1
+noisy_input[1] = 1
+
+print_grid(noisy_input, ROWS, COLS, "Danificado")
+
+restored_pattern = hopfield.predict(noisy_input)
+
+print_grid(restored_pattern, ROWS, COLS, "Recuperado")
+
+noisy_input[0] = -1
+noisy_input[1] = -1
+noisy_input[2] = 1
+noisy_input[4] = -1
+noisy_input[6] = -1
+noisy_input[7] = 1
+noisy_input[8] = -1
+noisy_input[10] = 1
+noisy_input[11] = 1
+noisy_input[13] = 1
+
+print_grid(noisy_input, ROWS, COLS, "Danificado")
+
+restored_pattern = hopfield.predict(noisy_input)
+
+print_grid(restored_pattern, ROWS, COLS, "Recuperado")
