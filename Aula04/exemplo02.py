@@ -36,9 +36,10 @@ for i in range(3):
     grupo = df[df['Cluster'] == i]
     plt.scatter(grupo['Peso'], grupo['Diametro'], s=100, c=cores[i], label=f'Grupo {nomes[i]}', alpha=0.6, edgecolors='w')
 
-centroide = lkmeans.cluster_centers_
-plt.xlabel("Peso")
-plt.ylabel("Diametro")
+plt.xlabel("Diâmetro")
+plt.ylabel("Peso")
+plt.axvline(x=12.0, color='red', linestyle='--', alpha=0.5, label='Meta Diâmetro 12mm')
+plt.axhline(y=15.0, color='red', linestyle='--', alpha=0.5, label='Meta Peso 15g')
 plt.legend()
 plt.grid(True, linestyle="--", alpha=0.5)
 plt.show()
