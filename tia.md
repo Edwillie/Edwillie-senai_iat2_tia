@@ -4,6 +4,7 @@ Aulas de Técnicas de Inteligencia Artificial..
 2026-02-09 (Aula 04): Redes Neurais com aprendizado não supervisionado
 2026-02-23 (Aula 05)
 2026-03-02 (Aula 06)
+2026-03-09 (Aula 07)
 
 
 # Base Neural
